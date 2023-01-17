@@ -6,48 +6,107 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of RPrelimEdaHelper is to …
+This package is a preliminary exploratory data analysis (EDA) tool to
+make useful feature EDA plots and provide relevant information to
+simplify an otherwise tedious EDA step of any data science project.
+Specifically this package allows users to target any two features,
+whether they are numeric or categorical, and create visualization plots
+supplemented with useful summary and test statistics.
 
-## Installation
+This package provides a streamlined and easy to use solution for basic
+EDA tasks that would otherwise require significant amount of coding to
+achieve.
 
-You can install the development version of RPrelimEdaHelper like so:
+`R_prelim_eda_helper` enables user to write quick visualization queries.
+At the same time, as we understand visually strong effects on graphs are
+not necessarily statistically meaningful, `prelim_eda_helper` is
+designed to combine graphic visualizations with preliminary statistical
+test results. We aim to create a helper package to really help
+researchers to get a quick sense of how our data look like, without
+making charts and doing tests separately in earlier stages of projects.
+While existing packages for plotting and statistical tests already exist
+(e.g., `ggplot2`(<https://ggplot2.tidyverse.org/reference/ggplot.html>)
+in `tidyverse`), we believe the combination of graphical and statistical
+output is what makes `prelim_eda_helper` a unique yet handy helper
+package.
+
+To achive this goal, `R_prelim_eda_helper` creates charts with the
+visualization library
+[`ggplot2`](https://ggplot2.tidyverse.org/reference/ggplot.html) and
+conducts statistical tests with [‘scipy’](https://scipy.org/).
+
+## Usage
+
+### Installation
+
+The development version of the package can be installed with the code
+below.
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github( 'UBC-MDS/R_prelim_eda_helper')
 ```
 
-## Example
+### `num_dist_by_cat`
 
-This is a basic example which shows you how to solve a common problem:
+Creates a pair of plots showing the distribution of the numeric variable
+when grouped by the categorical variable. Output includes a histogram
+and boxplot. In addition, basic test statistics will be provided for
+user reference.
 
 ``` r
-library(RPrelimEdaHelper)
-## basic example code
+num_dist_by_cat(
+  num = x, cat = group, data = df,
+  title_hist = 'Distribution of X', title_boxplot = 'X Seperated by Group',
+  lab_num = 'X', lab_cat = 'Group', num_on_x = True, stat = True)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+### `num_dist_scatter`
+
+Creates a scatter plot given two numerical variables. The plot can
+provide regression trendline and include confidence interval bands.
+Spearman and Pearson’s correlation will also be returned to aid the user
+to determining feature relationship.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+num_dist_scatter(
+  num1 = x, num2 = y, data = df, title = 'Scatter plot with X and Y',
+  lab_1 = 'X', lab_2 = 'Y', trend = None, band = False)
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+### `cat_dist_heatmap`
 
-You can also embed plots, for example:
+Creates concatenated charts showing the heatmap of two categorical
+variables and a bar chart for occurrence of these variables.
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+cat_dist_heatmap(
+  cat1 = group1, cat2 = group2, data = df, title = 'How are Group1 and Group2 distributed?',
+  lab_1 = 'group1', lab_2 = 'group2', heatmap = True, barchart = True)
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+### `num_dist_summary`
+
+Creates a distribution plot of the given numeric variable and provides a
+statistical summary of the feature. In addition, the correlation values
+of the variable with other numeric features will be provided based on a
+given threshold.
+
+``` r
+num_dist_summary(
+  num = x, data = df, title = 'Distribution of X', lab = 'X',
+  num_on_x = True, thresh_corr = 0.0, stat = True)
+```
+
+## Contributing
+
+Please check the [contributing
+guidelines](https://github.com/UBC-MDS/R_Prelim_Eda_Helper/blob/main/.github/CONTRIBUTING.md)
+if you are interested in contributing. As the project is released with a
+[Code of
+Conduct](https://github.com/UBC-MDS/R_Prelim_Eda_Helper/blob/main/CODE_OF_CONDUCT.md),
+you will agree to follow the terms if you wish to contribute.
+
+## License
+
+`prelim_eda_helper` was created by Mehwish Nabi, Morris Chan, Xinry LU,
+Austin Shih. It is licensed under the terms of the MIT license.
