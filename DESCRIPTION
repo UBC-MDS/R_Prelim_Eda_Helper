@@ -1,12 +1,13 @@
 Package: RPrelimEdaHelper
-Title: What the Package Does (One Line, Title Case)
+Title: This package is a preliminary exploratory data analysis tool to make useful feature comparison plots and provide relevant information to simplify an otherwise tedious EDA step of any data science project
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+    person("Austin", "Shih", , "austin.cm.shih@gmail.com", role = c("aut", "cre"))
+    person("Mehwish", "Nabi", , "mehwishnabi.ubc@gmail.com", role = c("aut", "cre"))
+    person("Morris", "Chan", , "morrismanfung@gmail.com", role = c("aut", "cre"))
+    person("Xinru ", "Lu", , "morrismanfung@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
