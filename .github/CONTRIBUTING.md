@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: sentence
----
-
 # Contributing to RPrelimEdaHelper
 
 This outlines how to propose a change to RPrelimEdaHelper.
