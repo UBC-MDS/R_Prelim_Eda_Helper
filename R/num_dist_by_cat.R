@@ -17,7 +17,7 @@ library( cowplot)
 #' @export
 #'
 #' @examples
-#' num_dist_by_catnum_dist_by_cat(
+#' num_dist_by_cat(
 #'   v_num = num, v_cat = groups, data = data,
 #'   title_hist = 'Distribution of X', title_boxplot = 'X Seperated by Group',
 #'   lab_num = 'X', lab_cat = 'Group', num_on_x = True, stat = True)
