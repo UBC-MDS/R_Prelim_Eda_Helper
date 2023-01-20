@@ -48,6 +48,8 @@ comments, commits, code, wiki edits, issues, and other contributions that are
 not aligned to this Code of Conduct, and will communicate reasons for moderation
 decisions when appropriate.
 
+Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported by contacting the MDS team. An email to kvarada@cs.ubc.ca will be seen by Varada Kolhatkar, and an email to lourenzutti@stat.ubc.ca will be seen by Rodolfo Lourenzutti. To report a MDS code of conduct violation that will not be seen by Varada Kolhatkar or Rodolfo Lourenzutti, an alternative contact person is Milad Maymay, MDS Director, Program Operations & Student Management. His email is maymay@science.ubc.ca .
+
 ## Scope
 
 This Code of Conduct applies within all community spaces, and also applies when
