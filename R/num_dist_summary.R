@@ -9,8 +9,8 @@
 #' @param label_x A string,  X-axis label for numeric column
 #' @param thresh_corr Number Threshold value for correlation
 #' @param stat  Boolean, whether to show statistic information or not
-#'
+#' @export
 #' @return plot and dataframe to display summary statistics and correlation values
-num_dist <- function(col_name,  data, title = '', label_x = '',   thresh_corr = 0.0, stat = TRUE) {
+num_dist_summary <- function(col_name,  data, title = '', label_x = '',   thresh_corr = 0.0, stat = TRUE) {
 
 }
