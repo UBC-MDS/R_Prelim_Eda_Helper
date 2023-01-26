@@ -52,13 +52,13 @@ num_dist_by_cat <- function( num, group, data, title_hist = '', title_boxplot = 
   n_group = length( group_list)
 
   if (n_group == 0){
-    cat( 'Please use a data frame with data inside.\n')
+    stop( 'Please use a data frame with data inside.\n')
   } else if (n_group == 1){
-    cat( 'Please consider using prelim_eda_helper.num_dist_summary when only 1 class is used.\n')
+    stop( 'Please consider using prelim_eda_helper.num_dist_summary when only 1 class is used.\n')
   } else if ( stat == TRUE){
     if (n_group == 2){
       if (var( dplyr::select( data, {{ group}})) == 0){
-        cat( 'A t test is not performed as the total variance is 0.\n')
+        stop( 'A t test is not performed as the total variance is 0.\n')
       } else {
         group_a <- data |>
           dplyr::filter( {{group}} == group_list[ 1])
