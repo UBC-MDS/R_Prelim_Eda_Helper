@@ -14,15 +14,15 @@
 #' @export
 #'
 #' @examples
+#' data <- data.frame( num = c( 1, 2, 3, 4), classes = c( 1, 1, 2, 2))
 #' num_dist_by_cat(
-#'   num = num, group = groups, data = data,
+#'   num = num, group = classes, data = data,
 #'   title_hist = 'Distribution of X', title_boxplot = 'X Seperated by Group',
-#'   lab_num = 'X', lab_group = 'Group', num_on_x = True, stat = True)
+#'   lab_num = 'X', lab_group = 'Group', num_on_x = TRUE, stat = TRUE)
 num_dist_by_cat <- function( num, group, data, title_hist = '', title_boxplot = '', lab_num = '', lab_group = '', num_on_x = TRUE, stat = TRUE){
 
   # Ensure group is a factor
-  data <- data |>
-    dplyr::mutate( {{group}} := as.factor( {{group}}))
+  data <- dplyr::mutate( data, {{group}} := as.factor( {{group}}))
 
   # Histogram
   hist <- data |>
