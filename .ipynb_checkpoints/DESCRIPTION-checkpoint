@@ -1,0 +1,23 @@
+Package: RPrelimEdaHelper
+Title: This package is a preliminary exploratory data analysis tool to make useful feature comparison plots and provide relevant information to simplify an otherwise tedious EDA step of any data science project
+Version: 0.0.0.9000
+Authors@R: 
+    person("Austin", "Shih", , "austin.cm.shih@gmail.com", role = c("aut", "cre"))
+    person("Mehwish", "Nabi", , "mehwishnabi.ubc@gmail.com", role = c("aut", "cre"))
+    person("Morris", "Chan", , "morrismanfung@gmail.com", role = c("aut", "cre"))
+    person("Xinru ", "Lu", , "morrismanfung@gmail.com", role = c("aut", "cre"))
+Description: This package is a preliminary exploratory data analysis tool to make useful feature 
+    comparison plots and provide relevant information to simplify an otherwise tedious EDA step of any data science project.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    car,
+    testthat (>= 3.0.0),
+    tidyverse
+Config/testthat/edition: 3
+Imports: 
+    cowplot,
+    dplyr,
+    ggplot2
