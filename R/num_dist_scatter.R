@@ -7,16 +7,15 @@
 #' @param title A string for the title for the chart.
 #' @param stat Boolean whether or not to include simple statistics.
 #' @param trend A string for the type of trend line. Options are: FALSE, 'lm', 'loess'.
-#'
-#' @return A ggplot scatter plot object
 #' @export
-#'
-#' @examples
+#' @return A ggplot scatter plot object
+#'  @examples
 #' num_dist_scatter(
 #'   num1='num1', num2='num2', data=df, title='num1 v num2', stat = TRUE, trend='lm'
 #' )
 num_dist_scatter <- function(num1, num2, data, title = '', stat = FALSE, trend = FALSE){
-  df1 <- data
+  df1 <- data |>
+    dplyr::select(all_of(num1), all_of(num2))
 
   # simple stats
   num1_stat <- tibble::tibble(

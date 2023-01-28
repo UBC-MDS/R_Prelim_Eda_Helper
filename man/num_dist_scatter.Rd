@@ -22,13 +22,12 @@ num_dist_scatter(num1, num2, data, title = "", stat = FALSE, trend = FALSE)
 }
 \value{
 A ggplot scatter plot object
+@examples
+num_dist_scatter(
+num1='num1', num2='num2', data=df, title='num1 v num2', stat = TRUE, trend='lm'
+)
 }
 \description{
 num_dist_scatter
 Creates a scatter plot given two numerical features.
-}
-\examples{
-num_dist_scatter(
-  num1='num1', num2='num2', data=df, title='num1 v num2', stat = TRUE, trend='lm'
-)
 }
