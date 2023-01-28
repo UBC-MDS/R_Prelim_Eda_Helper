@@ -41,16 +41,16 @@ num_dist_summary <- function(col_name,  data, title = '', label_x = '',   thresh
     stop("Column is not present in the data  ")
   }
   ## check if the column is numeric
-  if (col_name %in% colnames(select_if(data, is.numeric)) == FALSE) {
+  if (col_name %in% colnames(dplyr::select_if(data, is.numeric)) == FALSE) {
     stop("Please select a numeric column")
   }
 
 
 
   ## create a bar chart
-  hist <- ggplot2::ggplot(data, aes(.data[[col_name]])) +  ggplot2::geom_bar() +
+  hist <- ggplot2::ggplot(data, ggplot2::aes(x = .data[[col_name]])) +  ggplot2::geom_bar() +
           ggplot2::xlab(label_x) +
-          ggtitle(title) + ggplot2::theme(
+          ggplot2::ggtitle(title) + ggplot2::theme(
       plot.title = ggplot2::element_text(size = 20, face = "bold"),
       axis.text = ggplot2::element_text(size = 12),
       axis.title = ggplot2::element_text(size = 12)
@@ -67,12 +67,12 @@ num_dist_summary <- function(col_name,  data, title = '', label_x = '',   thresh
     print("Summary statistics \n" )
     print(num_stat)
   }
-  colnames <-  colnames(select_if(mtcars , is.numeric))
+  colnames <-  colnames(dplyr::select_if(data , is.numeric))
   features <- c()
   correlation <- c()
   for (col in colnames ){
 
-    r <-  cor(data[[col_name]], data[[col]], method = 'pearson')
+    r <-  stats::cor(data[[col_name]], data[[col]], method = 'pearson')
     if ( r != 1 && r >= thresh_corr) {
       features <- append(features,col)
       correlation <- append(correlation, r)
