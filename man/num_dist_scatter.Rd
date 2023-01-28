@@ -5,7 +5,14 @@
 \title{num_dist_scatter
 Creates a scatter plot given two numerical features.}
 \usage{
-num_dist_scatter(num1, num2, data, title = "", stat = FALSE, trend = FALSE)
+num_dist_scatter(
+  num1,
+  num2,
+  data,
+  title = "",
+  stat = FALSE,
+  trend = FALSE
+)
 }
 \arguments{
 \item{num1}{Name of the column for the first numeric feature.}
@@ -15,6 +22,7 @@ num_dist_scatter(num1, num2, data, title = "", stat = FALSE, trend = FALSE)
 \item{data}{Target data frame for visualization.}
 
 \item{title}{Title for the chart.}
+
 
 \item{stat}{Whether or not to include simple statistics.}
 

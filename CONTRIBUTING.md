@@ -1,13 +1,10 @@
----
-editor_options: 
-  markdown: 
-    wrap: sentence
----
 
 # Contributing to RPrelimEdaHelper
 
 This outlines how to propose a change to RPrelimEdaHelper.
 For more detailed info about contributing to this, and other tidyverse packages, please see the [**development contributing guide**](https://rstd.io/tidy-contrib).
+
+
 
 ## Fixing typos
 
