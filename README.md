@@ -62,15 +62,16 @@ num_dist_by_cat(
 
 ### `num_dist_scatter`
 
-Creates a scatter plot given two numerical variables. The plot can
-provide regression trendline and include confidence interval bands.
+Creates a scatter plot given two numerical variables. 
+Output can include simple statistics and
+the plot can provide regression trendline.
 Spearman and Pearson’s correlation will also be returned to aid the user
 to determining feature relationship.
 
 ``` r
 num_dist_scatter(
   num1 = x, num2 = y, data = df, title = 'Scatter plot with X and Y',
-  lab_1 = 'X', lab_2 = 'Y', trend = None, band = False)
+  stat = TRUE, trend = 'lm')
 ```
 
 ### `cat_dist_heatmap`
