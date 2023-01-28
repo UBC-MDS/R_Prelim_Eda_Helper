@@ -9,9 +9,8 @@
 #' @param lab_group Axis label for the categorical variable.
 #' @param num_on_x Whether the numeric variable is put on the x-axis in the boxplot.
 #' @param stat Whether printing the test statistic and summary or not.
-#'
-#' @return A ggplot object consists of a histogram and a boxplot.
 #' @export
+#' @return A ggplot object consists of a histogram and a boxplot.
 #'
 #' @examples
 #' data <- data.frame( num = c( 1, 2, 3, 4), classes = c( 1, 1, 2, 2))
