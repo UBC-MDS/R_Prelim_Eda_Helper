@@ -31,6 +31,10 @@ num_dist_summary(
 }
 \value{
 plot and dataframe to display summary statistics and correlation values
+@examples
+num_dist_summary(
+col_name =num1, data=df, title='num_col1',label_x= 'distribution of num1', thresh_corr = 0.3,stat = TRUE
+)
 }
 \description{
 Create a distribution plot of the numeric variable
