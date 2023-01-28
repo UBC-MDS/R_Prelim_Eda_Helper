@@ -1,7 +1,3 @@
-library( car)
-library( testthat)
-library( tidyverse)
-
 df = mtcars
 result <- num_dist_by_cat( num = mpg, group = vs, data = df)
 test_that( 'A ggplot object is returned', {
@@ -16,7 +12,7 @@ test_that( 'An error should be raised when an empty data frame is passed.', {
 })
 
 single_group <- df |>
-  filter( vs == '1')
+  dplyr::filter( vs == '1')
 test_that( 'An error should be raised when there is only 1 class in the group column', {
   expect_error( num_dist_by_cat( num = mpg, group = vs, data = single_group))
 })
