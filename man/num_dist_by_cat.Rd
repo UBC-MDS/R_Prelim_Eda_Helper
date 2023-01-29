@@ -5,21 +5,21 @@
 \title{Create a histogram paired with a box plot.}
 \usage{
 num_dist_by_cat(
-  v_num,
-  v_cat,
+  num,
+  group,
   data,
   title_hist = "",
   title_boxplot = "",
   lab_num = "",
-  lab_cat = "",
+  lab_group = "",
   num_on_x = TRUE,
   stat = TRUE
 )
 }
 \arguments{
-\item{v_num}{Name of the column for the numeric variable.}
+\item{num}{Name of the column for the numeric variable.}
 
-\item{v_cat}{Name of the column for the categorical variable.}
+\item{group}{Name of the column for the categorical variable.}
 
 \item{data}{Target data frame for visualization.}
 
@@ -29,7 +29,7 @@ num_dist_by_cat(
 
 \item{lab_num}{Axis label for the numeric variable.}
 
-\item{lab_cat}{Axis label for the categorical variable.}
+\item{lab_group}{Axis label for the categorical variable.}
 
 \item{num_on_x}{Whether the numeric variable is put on the x-axis in the boxplot.}
 
@@ -42,8 +42,9 @@ A ggplot object consists of a histogram and a boxplot.
 Create a histogram paired with a box plot.
 }
 \examples{
+data <- data.frame( num = c( 1, 2, 3, 4), classes = c( 1, 1, 2, 2))
 num_dist_by_cat(
-  v_num = num, v_cat = groups, data = data,
+  num = num, group = classes, data = data,
   title_hist = 'Distribution of X', title_boxplot = 'X Seperated by Group',
-  lab_num = 'X', lab_cat = 'Group', num_on_x = True, stat = True)
+  lab_num = 'X', lab_group = 'Group', num_on_x = TRUE, stat = TRUE)
 }
