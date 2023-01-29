@@ -20,8 +20,4 @@ Config/testthat/edition: 3
 Imports: 
     cowplot,
     dplyr,
-    ggplot2,
-    mice,
-    palmerpenguins,
-    stats,
-    tibble
+    ggplot2

@@ -3,49 +3,31 @@
 \name{num_dist_scatter}
 \alias{num_dist_scatter}
 \title{num_dist_scatter
-Creates a scatter plot given two numerical features
-Plot can provide regression trendline and highlight outliers.
-Spearman and Pearson's correlation will also be returned as options}
+Creates a scatter plot given two numerical features.}
 \usage{
-num_dist_scatter(
-  num1,
-  num2,
-  data,
-  title = "",
-  lab_num1 = "",
-  lab_num2 = "",
-  trend = FALSE,
-  band = FALSE
-)
+num_dist_scatter(num1, num2, data, title = "", stat = FALSE, trend = FALSE)
 }
 \arguments{
-\item{num1}{Name of the column for the first numeric feature.}
+\item{num1}{A string for the name of the column for the first numeric feature.}
 
-\item{num2}{Name of the column for the second numeric feature.}
+\item{num2}{A string for the name of the column for the second numeric feature.}
 
-\item{data}{Target data frame for visualization.}
+\item{data}{A dataframe for visualization.}
 
-\item{title}{Title for the chart.}
+\item{title}{A string for the title for the chart.}
 
-\item{lab_num1}{Axis label for the first numeric feature.}
+\item{stat}{Boolean whether or not to include simple statistics.}
 
-\item{lab_num2}{Axis label for the second numeric feature.}
-
-\item{trend}{Type of trend line. Options are: FALSE, 'lin', 'poly'.}
-
-\item{band}{Whether to include 95\% confidence interval band.}
+\item{trend}{A string for the type of trend line. Options are: FALSE, 'lm', 'loess'.}
 }
 \value{
 A ggplot scatter plot object
+@examples
+num_dist_scatter(
+num1='num1', num2='num2', data=df, title='num1 v num2', stat = TRUE, trend='lm'
+)
 }
 \description{
 num_dist_scatter
-Creates a scatter plot given two numerical features
-Plot can provide regression trendline and highlight outliers.
-Spearman and Pearson's correlation will also be returned as options
-}
-\examples{
-num_dist_scatter(
-  num1=num_col1, num2=num_col2, data=df, title='num_col1 v num_col2', lab_num1='num_col1', lab_num2='num_col2', trend='lin', band=TRUE
-)
+Creates a scatter plot given two numerical features.
 }
