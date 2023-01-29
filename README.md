@@ -55,9 +55,9 @@ user reference.
 
 ``` r
 num_dist_by_cat(
-  num = x, cat = group, data = df,
+  num = x, group = classes, data = data,
   title_hist = 'Distribution of X', title_boxplot = 'X Seperated by Group',
-  lab_num = 'X', lab_cat = 'Group', num_on_x = True, stat = True)
+  lab_num = 'X', lab_group = 'Group', num_on_x = TRUE, stat = TRUE)
 ```
 
 ### `num_dist_scatter`
@@ -69,8 +69,8 @@ to determining feature relationship.
 
 ``` r
 num_dist_scatter(
-  num1 = x, num2 = y, data = df, title = 'Scatter plot with X and Y',
-  lab_1 = 'X', lab_2 = 'Y', trend = None, band = False)
+  num1 = 'num1', num2 = 'num2', data = df, title = 'num1 v num2',
+  stat = FALSE, trend = FALSE)
 ```
 
 ### `cat_dist_heatmap`
@@ -93,8 +93,8 @@ given threshold.
 
 ``` r
 num_dist_summary(
-  num = x, data = df, title = 'Distribution of X', lab = 'X',
-  num_on_x = True, thresh_corr = 0.0, stat = True)
+  col_name = num1, data = df, title = 'num_col1', label_x = 'distribution of num1',
+  thresh_corr = 0.0, stat = TRUE)
 ```
 
 ## Contributing

@@ -15,7 +15,7 @@
 #' num_dist_summary(
 #'   col_name =num1, data=df, title='num_col1',label_x= 'distribution of num1', thresh_corr = 0.3,stat = TRUE
 #' )
-num_dist_summary <- function(col_name,  data, title = '', label_x = '',   thresh_corr = 0.0, stat = TRUE) {
+num_dist_summary <- function(col_name,  data, title = '', label_x = '',   thresh_corr = 0.3, stat = TRUE) {
 
   if (nrow(data) == 0) {
     stop("Please use a data frame with data inside")

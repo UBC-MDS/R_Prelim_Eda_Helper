@@ -12,7 +12,7 @@ num_dist_summary(
   data,
   title = "",
   label_x = "",
-  thresh_corr = 0,
+  thresh_corr = 0.3,
   stat = TRUE
 )
 }
