@@ -9,9 +9,11 @@
 #' @param lab_2 Axis label for the second categorical variable (y-axis).
 #' @param heatmap Whether to include a heatmap plot or not.
 #' @param barchart Whether to include the barchart or not.
-#' @export
+#'
 #' @return A concatenated ggplot chart consists of a heatmap and 2 barcharts.
-#'  @examples
+#' @export
+#'
+#' @examples
 #' cat_dist_heatmap(
 #'   cat_1 = school_type, cat_2 = program_type, data = data,
 #'   title = 'School Type vs Program Type',
@@ -28,8 +30,8 @@ cat_dist_heatmap <- function(cat_1, cat_2, data, title = '', lab_1 = '', lab_2 =
   if (unique(data$cat_2) == n_rows) {
     stop(paste(cat_2, " does not appear to be a valid categorical column. Please double check the input."))
   }
-
-  data <- dplyr::mutate(data,
+  
+  data <- dplyr::mutate(data, 
                         {{cat_1}} := as.factor( {{cat_1}}),
                         {{cat_2}} := as.factor( {{cat_2}}),
   )
@@ -42,19 +44,19 @@ cat_dist_heatmap <- function(cat_1, cat_2, data, title = '', lab_1 = '', lab_2 =
   if (nchar(lab_2) == 0) {
     lab_2 = cat_2
   }
-
-  heatmap <- data |>
-    dplyr::add_count(cat_1, cat_2) |>
+    
+  heatmap <- data |> 
+    ggplot2::add_count(cat_1, cat_2) |> 
     ggplot2::ggplot() +
     ggplot2::aes(x = cat_1,
                  y = cat_2,
                  fill = n) +
     ggplot2::labs( title = title, x = lab_1, y = lab_2)
-  barchart <- data |>
+  barchart <- data |> 
     ggplot2::ggplot() +
     ggplot2::aes(y = cat_1,
         fill = cat_2) +
-    ggplot2::geom_bar(stat = 'count', position = 'dodge') +
+    ggplot2::geom_bar(stat = 'count', position = 'dodge') + 
     ggplot2::labs( title = title, x = lab_1, y = lab_2)
   if (heatmap == TRUE && barchart == TRUE) {
     cowplot::plot_grid(heatmap, barchart)

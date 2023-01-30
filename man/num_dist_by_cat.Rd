@@ -37,13 +37,14 @@ num_dist_by_cat(
 }
 \value{
 A ggplot object consists of a histogram and a boxplot.
-@examples
-data <- data.frame( num = c( 1, 2, 3, 4), classes = c( 1, 1, 2, 2))
-num_dist_by_cat(
-num = num, group = classes, data = data,
-title_hist = 'Distribution of X', title_boxplot = 'X Seperated by Group',
-lab_num = 'X', lab_group = 'Group', num_on_x = TRUE, stat = TRUE)
 }
 \description{
 Create a histogram paired with a box plot.
+}
+\examples{
+data <- data.frame( num = c( 1, 2, 3, 4), classes = c( 1, 1, 2, 2))
+num_dist_by_cat(
+  num = num, group = classes, data = data,
+  title_hist = 'Distribution of X', title_boxplot = 'X Seperated by Group',
+  lab_num = 'X', lab_group = 'Group', num_on_x = TRUE, stat = TRUE)
 }
