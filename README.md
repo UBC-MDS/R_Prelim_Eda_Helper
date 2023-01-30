@@ -4,6 +4,7 @@
 # RPrelimEdaHelper
 
 <!-- badges: start -->
+![ci-cd](https://github.com/UBC-MDS/prelim_eda_helper/actions/workflows/ci-cd.yml/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/R_Prelim_Eda_Helper/branch/main/graph/badge.svg?token=7BpWZihHxW)](https://codecov.io/gh/UBC-MDS/R_Prelim_Eda_Helper)
 <!-- badges: end -->
 
 This package is a preliminary exploratory data analysis (EDA) tool to
