@@ -55,7 +55,7 @@ num_dist_by_cat <- function( num, group, data, title_hist = '', title_boxplot = 
     stop( 'Please consider using prelim_eda_helper.num_dist_summary when only 1 class is used.\n')
   } else if ( stat == TRUE){
     if (n_group == 2){
-      if (var( dplyr::select( data, {{ group}})) == 0){
+      if (var( dplyr::select( data, {{ num}})) == 0){
         stop( 'A t test is not performed as the total variance is 0.\n')
       } else {
         group_a <- data |>
