@@ -1,0 +1,56 @@
+---
+title: "RPrelimEdaHelper-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{RPrelimEdaHelper-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Setting up the library
+
+```{r setup}
+library(RPrelimEdaHelper)
+```
+
+Lets look at some examples using PalmerPenguins Package
+
+```{r}
+library (palmerpenguins)
+
+penguins<- tidyr::drop_na(penguins)
+head(penguins)
+```
+
+```{r}
+#num_dist_by_cat(
+#num = bill_depth_mm, group = sex, data = penguins,
+#title_hist = 'Distribution of bill length', title_boxplot = 'Bill length by group',
+#lab_num = 'Bill length (mm)', lab_group = 'Sex' ,  num_on_x = TRUE, stat = TRUE)
+```
+
+```{r}
+
+num_dist_summary(
+  col_name ="bill_depth_mm", data= tidyr::drop_na(penguins), title='Bill Depth (mm) ',label_x= 'distribution of Bill Depth ', 
+  thresh_corr = 0.3,stat = TRUE
+)
+
+```
+
+```{r warning = FALSE, eval=  FALSE}
+num_dist_scatter(num1='bill_length_mm', num2='body_mass_g', data=penguins,
+                      title = 'num1 vs num2', stat=FALSE, trend= FALSE)
+```
+
+```{r}
+#cat_dist_heatmap(cat_1 = species, cat_2 = islands, data = penguins, title = 'School Type vs Program Type',   lab_1 = #'School type', lab_2 = 'Program type', heatmap = TRUE, barchart = TRUE)
+```
