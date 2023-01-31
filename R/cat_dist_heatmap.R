@@ -22,48 +22,41 @@ cat_dist_heatmap <- function(cat_1, cat_2, data, title = '', lab_1 = '', lab_2 =
   if (n_rows < 1) {
     stop("Dataset must have at least one row of data.")
   }
-  if (unique(data$cat_1) == n_rows) {
-    stop(paste(cat_1, " does not appear to be a valid categorical column. Please double check the input."))
+  if ( length( unique(dplyr::select(data, {{cat_1}}))) == n_rows) {
+    # stop(paste(cat_1, " does not appear to be a valid categorical column. Please double check the input."))
+    stop("It does not appear to be a valid categorical column. Please double check the input.")
   }
-  if (unique(data$cat_2) == n_rows) {
-    stop(paste(cat_2, " does not appear to be a valid categorical column. Please double check the input."))
+  if ( length( unique(dplyr::select(data, {{cat_2}}))) == n_rows) {
+    # stop(paste(cat_2, " does not appear to be a valid categorical column. Please double check the input."))
+    stop("It does not appear to be a valid categorical column. Please double check the input.")
   }
 
   data <- dplyr::mutate(data,
                         {{cat_1}} := as.factor( {{cat_1}}),
                         {{cat_2}} := as.factor( {{cat_2}}),
   )
-  if (nchar(title) == 0) {
-    title = paste(cat_1, " vs. ", cat_2)
-  }
-  if (nchar(lab_1) == 0) {
-    lab_1 = cat_1
-  }
-  if (nchar(lab_2) == 0) {
-    lab_2 = cat_2
-  }
 
-  heatmap <- data |>
-    dplyr::add_count(cat_1, cat_2) |>
+  plot_heatmap <- data |>
+    dplyr::count( {{cat_1}}, {{cat_2}}) |>
     ggplot2::ggplot() +
-    ggplot2::aes(x = cat_1,
-                 y = cat_2,
+    ggplot2::aes(x = {{cat_1}},
+                 y = {{cat_2}},
                  fill = n) +
+    geom_tile() +
     ggplot2::labs( title = title, x = lab_1, y = lab_2)
-  barchart <- data |>
+  plot_barchart <- data |>
     ggplot2::ggplot() +
-    ggplot2::aes(y = cat_1,
-        fill = cat_2) +
+    ggplot2::aes(y = {{cat_1}},
+        fill = {{cat_2}}) +
     ggplot2::geom_bar(stat = 'count', position = 'dodge') +
     ggplot2::labs( title = title, x = lab_1, y = lab_2)
-  if (heatmap == TRUE && barchart == TRUE) {
-    cowplot::plot_grid(heatmap, barchart)
-  } else if (heatmap == TRUE) {
+  if ({{heatmap}} == TRUE && {{barchart}} == TRUE) {
+    cowplot::plot_grid( plot_heatmap, plot_barchart)
+  } else if ({{heatmap}} == TRUE) {
     heatmap
-  } else if (barchart == TRUE) {
+  } else if ({{barchart}} == TRUE) {
     barchart
   } else {
     stop( 'At least one of the plot options (heatmap or barchart) needs to be selected (set to TRUE).\n')
   }
 }
-
