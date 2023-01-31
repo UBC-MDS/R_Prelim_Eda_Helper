@@ -30,14 +30,14 @@ penguins<- tidyr::drop_na(penguins)
 head(penguins)
 ```
 
-```{r}
-#num_dist_by_cat(
-#num = bill_depth_mm, group = sex, data = penguins,
-#title_hist = 'Distribution of bill length', title_boxplot = 'Bill length by group',
-#lab_num = 'Bill length (mm)', lab_group = 'Sex' ,  num_on_x = TRUE, stat = TRUE)
+```{r, fig.width=7, fig.height=4}
+num_dist_by_cat(
+  num = bill_depth_mm, group = sex, data = penguins,
+  title_hist = 'Distribution of bill length', title_boxplot = 'Bill length by group',
+  lab_num = 'Bill length (mm)', lab_group = 'Sex' ,  num_on_x = TRUE, stat = TRUE)
 ```
 
-```{r}
+```{r, fig.width=7, fig.height=4}
 
 num_dist_summary(
   col_name ="bill_depth_mm", data= tidyr::drop_na(penguins), title='Bill Depth (mm) ',label_x= 'distribution of Bill Depth ', 
@@ -46,11 +46,12 @@ num_dist_summary(
 
 ```
 
-```{r warning = FALSE, eval=  FALSE}
+```{r, fig.width=7, fig.height=4}
 num_dist_scatter(num1='bill_length_mm', num2='body_mass_g', data=penguins,
-                      title = 'num1 vs num2', stat=FALSE, trend= FALSE)
+                      title = 'num1 vs num2', stat=TRUE, trend= 'loess')
 ```
 
-```{r}
-#cat_dist_heatmap(cat_1 = species, cat_2 = islands, data = penguins, title = 'School Type vs Program Type',   lab_1 = #'School type', lab_2 = 'Program type', heatmap = TRUE, barchart = TRUE)
+```{r, fig.width=7, fig.height=4}
+cat_dist_heatmap(cat_1 = 'species', cat_2 = 'island', data = penguins, title = 'Species vs Island',
+                 heatmap = TRUE, barchart = TRUE)
 ```
