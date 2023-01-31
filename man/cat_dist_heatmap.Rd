@@ -10,8 +10,6 @@ cat_dist_heatmap(
   cat_2,
   data,
   title = "",
-  lab_1 = "",
-  lab_2 = "",
   heatmap = TRUE,
   barchart = TRUE
 )
@@ -24,10 +22,6 @@ cat_dist_heatmap(
 \item{data}{Target data frame for visualization.}
 
 \item{title}{Title for the chart.}
-
-\item{lab_1}{Axis label for the first categorical variable (x-axis).}
-
-\item{lab_2}{Axis label for the second categorical variable (y-axis).}
 
 \item{heatmap}{Whether to include a heatmap plot or not.}
 

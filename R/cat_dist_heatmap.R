@@ -5,8 +5,6 @@
 #' @param cat_2 Name of the column name for the second categorical variable.
 #' @param data Target data frame for visualization.
 #' @param title Title for the chart.
-#' @param lab_1 Axis label for the first categorical variable (x-axis).
-#' @param lab_2 Axis label for the second categorical variable (y-axis).
 #' @param heatmap Whether to include a heatmap plot or not.
 #' @param barchart Whether to include the barchart or not.
 #' @export
@@ -16,45 +14,40 @@
 #'   cat_1 = school_type, cat_2 = program_type, data = data,
 #'   title = 'School Type vs Program Type',
 #'   lab_1 = 'School type', lab_2 = 'Program type', heatmap = True, barchart = True)
-cat_dist_heatmap <- function(cat_1, cat_2, data, title = '', lab_1 = '', lab_2 = '', heatmap = TRUE, barchart = TRUE){
+cat_dist_heatmap <- function(cat_1, cat_2, data, title = '', heatmap = TRUE, barchart = TRUE){
   # Sanity check
   n_rows = nrow(data)
   if (n_rows < 1) {
     stop("Dataset must have at least one row of data.")
   }
-  if ( length( unique(dplyr::select(data, {{cat_1}}))) == n_rows) {
-    # stop(paste(cat_1, " does not appear to be a valid categorical column. Please double check the input."))
+  if ( length( unique(data[[cat_1]])) == n_rows) {
     stop("It does not appear to be a valid categorical column. Please double check the input.")
   }
-  if ( length( unique(dplyr::select(data, {{cat_2}}))) == n_rows) {
-    # stop(paste(cat_2, " does not appear to be a valid categorical column. Please double check the input."))
+  if ( length( unique(data[[cat_2]])) == n_rows) {
     stop("It does not appear to be a valid categorical column. Please double check the input.")
   }
-
-  data <- dplyr::mutate(data,
-                        {{cat_1}} := as.factor( {{cat_1}}),
-                        {{cat_2}} := as.factor( {{cat_2}}),
-  )
 
   plot_heatmap <- data |>
-    dplyr::count( {{cat_1}}, {{cat_2}}) |>
-    ggplot2::ggplot() +
-    ggplot2::aes(x = {{cat_1}},
-                 y = {{cat_2}},
-                 fill = n) +
-    geom_tile() +
-    ggplot2::labs( title = title, x = lab_1, y = lab_2)
+    ggplot2::ggplot(ggplot2::aes(x = data[[cat_1]],
+                                 y = data[[cat_2]])) +
+    ggplot2::geom_bin_2d()+
+    ggplot2::labs( title = title,
+                   x = cat_1,
+                   y = cat_2)
+
   plot_barchart <- data |>
     ggplot2::ggplot() +
-    ggplot2::aes(y = {{cat_1}},
-        fill = {{cat_2}}) +
+    ggplot2::aes(y = data[[cat_1]],
+                 fill = data[[cat_2]]) +
     ggplot2::geom_bar(stat = 'count', position = 'dodge') +
-    ggplot2::labs( title = title, x = lab_1, y = lab_2)
-  if ({{heatmap}} == TRUE && {{barchart}} == TRUE) {
-    cowplot::plot_grid( plot_heatmap, plot_barchart)
-  } else if ({{heatmap}} == TRUE) {
+    ggplot2::labs( title = title,
+                   y = cat_1) +
+    ggplot2::guides(fill=ggplot2::guide_legend(title=cat_2))
+  if (heatmap == TRUE && barchart == TRUE) {
+    cowplot::plot_grid( plot_heatmap, plot_barchart, align='v', nrow = 2)
+  } else if (heatmap == TRUE) {
     heatmap
-  } else if ({{barchart}} == TRUE) {
+  } else if (barchart == TRUE) {
     barchart
   } else {
     stop( 'At least one of the plot options (heatmap or barchart) needs to be selected (set to TRUE).\n')

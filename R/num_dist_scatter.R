@@ -39,7 +39,7 @@ num_dist_scatter <- function(num1, num2, data, title = '', stat = FALSE, trend =
   }
 
   # replace na with mean value
-  imp_obj <- mice::mice(df1, m=1, method='mean', maxit=1)
+  imp_obj <- mice::mice(df1, m=1, method='mean', maxit=1, seed=123)
   df1 <- mice::complete(imp_obj,1)
 
   if(num1_stat$num_na != 0){

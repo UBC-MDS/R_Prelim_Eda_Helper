@@ -81,8 +81,8 @@ variables and a bar chart for occurrence of these variables.
 
 ``` r
 cat_dist_heatmap(
-  cat1 = group1, cat2 = group2, data = df, title = 'How are Group1 and Group2 distributed?',
-  lab_1 = 'group1', lab_2 = 'group2', heatmap = True, barchart = True)
+  cat1 = 'group1', cat2 = 'group2', data = df, title = 'Group1 & Group2 Distribution', 
+  heatmap = TRUE, barchart = TRUE)
 ```
 
 ### `num_dist_summary`
