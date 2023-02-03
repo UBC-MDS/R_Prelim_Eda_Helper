@@ -34,7 +34,7 @@ package.
 To achive this goal, `R_prelim_eda_helper` creates charts with the
 visualization library
 [`ggplot2`](https://ggplot2.tidyverse.org/reference/ggplot.html) and
-conducts statistical tests with [‘scipy’](https://scipy.org/).
+conducts statistical tests with [`scipy`](https://scipy.org/).
 
 ## Usage
 
