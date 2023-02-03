@@ -2,10 +2,10 @@ Package: RPrelimEdaHelper
 Title: This package is a preliminary exploratory data analysis tool to make useful feature comparison plots and provide relevant information to simplify an otherwise tedious EDA step of any data science project
 Version: 0.0.0.9000
 Authors@R: 
-    person("Austin", "Shih", , "austin.cm.shih@gmail.com", role = c("aut", "cre"))
-    person("Mehwish", "Nabi", , "mehwishnabi.ubc@gmail.com", role = c("aut", "cre"))
-    person("Morris", "Chan", , "morrismanfung@gmail.com", role = c("aut", "cre"))
-    person("Xinru ", "Lu", , "morrismanfung@gmail.com", role = c("aut", "cre"))
+    c(person("Austin", "Shih", , "austin.cm.shih@gmail.com", role = c("aut", "cre"),comment = c(ORCID = "...")),
+    person("Mehwish", "Nabi", , "mehwishnabi.ubc@gmail.com", role = c("aut"),comment = c(ORCID = "...")),
+    person("Morris", "Chan", , "morrismanfung@gmail.com", role = c("aut"),comment = c(ORCID = "...")),
+    person("Xinru ", "Lu", , "morrismanfung@gmail.com", role = c("aut"),comment = c(ORCID = "...")))
 Description: This package is a preliminary exploratory data analysis tool to make useful feature 
     comparison plots and provide relevant information to simplify an otherwise tedious EDA step of any data science project.
 License: MIT + file LICENSE
