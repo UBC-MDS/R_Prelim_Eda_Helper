@@ -4,7 +4,6 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{RPrelimEdaHelper-vignette}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
 
@@ -29,6 +28,8 @@ library (palmerpenguins)
 penguins<- tidyr::drop_na(penguins)
 head(penguins)
 ```
+
+Here are some examples of how the functions work
 
 ```{r, fig.width=7, fig.height=4}
 num_dist_by_cat(
